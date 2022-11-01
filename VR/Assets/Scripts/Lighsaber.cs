@@ -37,12 +37,13 @@ public class Lighsaber : MonoBehaviour
     [Tooltip("The amount of force applied to each side of a slice")]
     private float _forceAppliedToCut = 3f;
 
+
     private Mesh _mesh;
     private Vector3[] _vertices;
-    private int[] _triangles;
+/*    private int[] _triangles;
     private int _frameCount;
     private Vector3 _previousTipPosition;
-    private Vector3 _previousBasePosition;
+    private Vector3 _previousBasePosition;*/
     private Vector3 _triggerEnterTipPosition;
     private Vector3 _triggerEnterBasePosition;
     private Vector3 _triggerExitTipPosition;
@@ -54,22 +55,22 @@ public class Lighsaber : MonoBehaviour
         _mesh = new Mesh();
         _meshParent.GetComponent<MeshFilter>().mesh = _mesh;
 
-        Material trailMaterial = Instantiate(_meshParent.GetComponent<MeshRenderer>().sharedMaterial);
+/*        Material trailMaterial = Instantiate(_meshParent.GetComponent<MeshRenderer>().sharedMaterial);
         trailMaterial.SetColor("Color_8F0C0815", _colour);
-        _meshParent.GetComponent<MeshRenderer>().sharedMaterial = trailMaterial;
-
+        _meshParent.GetComponent<MeshRenderer>().sharedMaterial = trailMaterial;*/
+/*
         Material bladeMaterial = Instantiate(_blade.GetComponent<MeshRenderer>().sharedMaterial);
         bladeMaterial.SetColor("Color_AF2E1BB", _colour);
         _blade.GetComponent<MeshRenderer>().sharedMaterial = bladeMaterial;
 
-        _vertices = new Vector3[_trailFrameLength * NUM_VERTICES];
-        _triangles = new int[_vertices.Length];
+        _vertices = new Vector3[_trailFrameLength * NUM_VERTICES];*/
+/*        _triangles = new int[_vertices.Length];
 
         //Set starting position for tip and base
         _previousTipPosition = _tip.transform.position;
-        _previousBasePosition = _base.transform.position;
+        _previousBasePosition = _base.transform.position;*/
     }
-    
+/*    
     void LateUpdate()
     {
         //Reset the frame count one we reach the frame length
@@ -115,7 +116,7 @@ public class Lighsaber : MonoBehaviour
         _previousTipPosition = _tip.transform.position;
         _previousBasePosition = _base.transform.position;
         _frameCount += NUM_VERTICES;
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {

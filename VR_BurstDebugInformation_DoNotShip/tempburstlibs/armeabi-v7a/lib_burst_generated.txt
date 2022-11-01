@@ -130,14 +130,14 @@ Library: lib_burst_generated
 --compilation-defines=PHYSICS2D_MODULE_PRESENT
 --compilation-defines=CSHARP_7_OR_LATER
 --compilation-defines=CSHARP_7_3_OR_NEWER
---compilation-defines=ENABLE_VR_MODULE
---compilation-defines=ENABLE_XR_MODULE
---compilation-defines=ENABLE_INPUT_SYSTEM_PACKAGE
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
 --compilation-defines=PACKAGE_TILEMAP
 --compilation-defines=PACKAGE_ANIMATION
 --compilation-defines=PACKAGE_UITOOLKIT
+--compilation-defines=ENABLE_VR_MODULE
+--compilation-defines=ENABLE_XR_MODULE
+--compilation-defines=ENABLE_INPUT_SYSTEM_PACKAGE
 --compilation-defines=DISABLE_BUILTIN_INPUT_SYSTEM_OCULUS
 --compilation-defines=UNITY_INPUT_SYSTEM_ENABLE_VR
 --compilation-defines=UNITY_INPUT_SYSTEM_ENABLE_XR
@@ -158,8 +158,8 @@ Library: lib_burst_generated
 --debug=Full
 --output=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.XR.Interaction.Toolkit.dll
---root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.Runtime.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
+--root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.Runtime.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Services.Analytics.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Services.Core.Telemetry.dll

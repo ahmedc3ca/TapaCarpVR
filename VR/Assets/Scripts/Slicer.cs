@@ -71,8 +71,11 @@ namespace Assets.Scripts
             meshGameObject.transform.localScale = originalObject.transform.localScale;
             meshGameObject.transform.rotation = originalObject.transform.rotation;
             meshGameObject.transform.position = originalObject.transform.position;
+            meshGameObject.transform.SetParent(originalObject.transform.parent);
 
             meshGameObject.tag = originalObject.tag;
+
+            //meshGameObject.transform.SetParent(parent, false);
 
             return meshGameObject;
         }
