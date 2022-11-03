@@ -39,6 +39,12 @@ public class Lighsaber : MonoBehaviour
     [Tooltip("The amount of force applied to each side of a slice")]
     private float _forceAppliedToCut = 3f;
 
+    [SerializeField]
+    private Material redWireframe;
+    [SerializeField]
+    private Material blueWireframe;
+    [SerializeField]
+    private Material balckWireframe;
 
     private Mesh _mesh;
     private Vector3[] _vertices;
@@ -49,6 +55,11 @@ public class Lighsaber : MonoBehaviour
     //Input logic
     private bool isPressed = false;
     private bool isPreview = false;
+
+    private GameObject og;
+    private GameObject cut1;
+    private GameObject cut2;
+    private Vector3 cutNormal;
 
     void Start()
     {
@@ -75,13 +86,13 @@ public class Lighsaber : MonoBehaviour
         isPressed = false;
         if (isPreview)
         {
-            //delete original
-            //remove colors
-            //apply force
-
-/*            Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
-            Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
-            rigidbody.AddForce(newNormal, ForceMode.Impulse);*/
+            Destroy(og);
+            cut1.GetComponent<MeshRenderer>().material = balckWireframe;
+            cut2.GetComponent<MeshRenderer>().material = balckWireframe;
+            Rigidbody rigidbody = cut2.GetComponent<Rigidbody>();
+            Vector3 newNormal = cutNormal + Vector3.up * _forceAppliedToCut;
+            rigidbody.AddForce(newNormal, ForceMode.Impulse);
+            isPreview = false;
         }
     }
 
@@ -95,8 +106,9 @@ public class Lighsaber : MonoBehaviour
         }
         else
         {
-            //delete cut 1 and cut 2
-            //restore original
+            Destroy(cut1);
+            Destroy(cut2);
+            og.SetActive(true);
             _triggerEnterTipPosition = _tip.transform.position;
             _triggerEnterBasePosition = _base.transform.position;
             isPreview = false;
@@ -138,18 +150,22 @@ public class Lighsaber : MonoBehaviour
         }
 
         GameObject[] slices = Slicer.Slice(plane, other.gameObject);
-        Debug.Log(other.gameObject.name);
+/*        Debug.Log(other.gameObject.name);
         Destroy(other.gameObject);
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
-        rigidbody.AddForce(newNormal, ForceMode.Impulse);
+        rigidbody.AddForce(newNormal, ForceMode.Impulse);*/
 
 
         //new logic:
-        //store cut 1 and 2 and og
+        og = other.gameObject;
+        og.SetActive(false);
+        cut1 = slices[0];
+        cut2 = slices[1];
+        cut1.GetComponent<MeshRenderer>().material = redWireframe;
+        cut2.GetComponent<MeshRenderer>().material = blueWireframe;
+        cutNormal = transformedNormal;
         isPreview = true;
-        //hide og
-        //color cut 1 and cut 2
     }
 }

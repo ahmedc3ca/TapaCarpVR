@@ -1428,7 +1428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730141451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22281405, y: 1.7438799, z: -0.923593}
+  m_LocalPosition: {x: -0.22281405, y: -100, z: -0.923593}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3339,6 +3339,36 @@ PrefabInstance:
       propertyPath: cubeParent
       value: 
       objectReference: {fileID: 456472210}
+    - target: {fileID: 243124944694131493, guid: 11e8d0a60917ab84796405961fa015e5,
+        type: 3}
+      propertyPath: redWireFrame
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f41f55088d13654d8184c31a7e5787c, type: 2}
+    - target: {fileID: 243124944694131493, guid: 11e8d0a60917ab84796405961fa015e5,
+        type: 3}
+      propertyPath: redWireframe
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f41f55088d13654d8184c31a7e5787c, type: 2}
+    - target: {fileID: 243124944694131493, guid: 11e8d0a60917ab84796405961fa015e5,
+        type: 3}
+      propertyPath: blueWireFrame
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c78ddc4f47dc7488b20c8addccd800, type: 2}
+    - target: {fileID: 243124944694131493, guid: 11e8d0a60917ab84796405961fa015e5,
+        type: 3}
+      propertyPath: blueWireframe
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c78ddc4f47dc7488b20c8addccd800, type: 2}
+    - target: {fileID: 243124944694131493, guid: 11e8d0a60917ab84796405961fa015e5,
+        type: 3}
+      propertyPath: balckWireFrame
+      value: 
+      objectReference: {fileID: 2100000, guid: 1016e7bc74be0f0459518a30a5d7f61f, type: 2}
+    - target: {fileID: 243124944694131493, guid: 11e8d0a60917ab84796405961fa015e5,
+        type: 3}
+      propertyPath: balckWireframe
+      value: 
+      objectReference: {fileID: 2100000, guid: 1016e7bc74be0f0459518a30a5d7f61f, type: 2}
     - target: {fileID: 243124944694131493, guid: 11e8d0a60917ab84796405961fa015e5,
         type: 3}
       propertyPath: _forceAppliedToCut
