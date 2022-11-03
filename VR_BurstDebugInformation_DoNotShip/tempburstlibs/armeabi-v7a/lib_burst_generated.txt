@@ -178,11 +178,11 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Services.Core.Internal.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Services.Core.Analytics.dll
+--root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Services.Core.Scheduler.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Services.Core.Registration.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Services.Core.Device.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.XR.Management.dll
---root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Services.Core.Threading.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=C:\Users\ezzo\Desktop\ahmed unity\TapaCarpVR\VR\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll

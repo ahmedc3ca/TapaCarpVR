@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Assets.Scripts
 {
@@ -72,10 +73,13 @@ namespace Assets.Scripts
             meshGameObject.transform.rotation = originalObject.transform.rotation;
             meshGameObject.transform.position = originalObject.transform.position;
             meshGameObject.transform.SetParent(originalObject.transform.parent);
+            meshGameObject.layer = originalObject.layer;
 
             meshGameObject.tag = originalObject.tag;
 
-            //meshGameObject.transform.SetParent(parent, false);
+            XRGrabInteractable grab = meshGameObject.AddComponent<XRGrabInteractable>();
+
+
 
             return meshGameObject;
         }
@@ -91,8 +95,8 @@ namespace Assets.Scripts
             meshCollider.sharedMesh = mesh;
             meshCollider.convex = true;
 
-            var rb = gameObject.AddComponent<Rigidbody>();
-            rb.useGravity = useGravity;
+            //var rb = gameObject.AddComponent<Rigidbody>();
+            //rb.useGravity = useGravity;
         }
     }
 }
