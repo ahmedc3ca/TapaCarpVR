@@ -20,11 +20,19 @@ public class CutterManager : MonoBehaviour
     protected MeshFilter meshFilter;
     protected Mesh mesh;
 
-    
 
+    private List<GameObject> ogs;
+    private List<GameObject> rightCuts;
+    private List<GameObject> leftCuts;
+    
+    //MESH CODE TO BE REMOVED SINCE IT'S STATIC
     // Start is called before the first frame update
     void Start()
     {
+        ogs = new List<GameObject>();
+        rightCuts = new List<GameObject>();
+        leftCuts = new List<GameObject>();
+
         mesh = new Mesh();
         mesh.name = "Plane";
 
@@ -62,12 +70,25 @@ public class CutterManager : MonoBehaviour
     void Update()
     {
         mesh.vertices = GenerateVerts();
-
+        //detect if cube is inside or outside 
+        //PreviewCuts();
 
     }
 
-    public void Cut()
+    public void PopCube()
     {
+        //flush lists and separate
+        /*Destroy(og);
+        cut1.GetComponent<MeshRenderer>().material = balckWireframe;
+        cut2.GetComponent<MeshRenderer>().material = balckWireframe;
+        isPreview = false;*/
+        //from objects to lists
+    }
+
+    public void PreviewCuts()
+    {
+
+        //restore cut to og
         List<Transform> children = new List<Transform>();
         //2 pass because children are modified during second loop
         foreach (Transform child in cubeParent.transform)
@@ -78,11 +99,13 @@ public class CutterManager : MonoBehaviour
         foreach (Transform child in children)
         {
             Debug.Log(child.name);
-            CutObject(child.gameObject);
+            PreviewCut(child.gameObject);
         }
     }
 
-    public void CutObject(GameObject cutted)
+    
+
+    public void PreviewCut(GameObject cutted)
     {
         //Create a triangle between the tip and base so that we can get the normal
         Vector3 side1 = corner1.transform.position - corner2.transform.position;
@@ -109,7 +132,19 @@ public class CutterManager : MonoBehaviour
             plane = plane.flipped;
         }
         GameObject[] slices = Slicer.Slice(plane, cutted);
-        Destroy(cutted);
+        //Destroy(cutted);
+
+        //new logic:
+        /*og = other.gameObject;
+        og.SetActive(false);
+        cut1 = slices[0];
+        cut2 = slices[1];
+        cut1.GetComponent<MeshRenderer>().material = redWireframe;
+        cut2.GetComponent<MeshRenderer>().material = blueWireframe;
+        cutNormal = transformedNormal;
+        */
+        //change og to ogs.add ; likewise with cut1 and 2; relocate ispreview = true
+       
     }
 
 

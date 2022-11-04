@@ -76,6 +76,17 @@ public class Lighsaber : MonoBehaviour
         
     }
 
+
+    //buttona pressed
+    // If preview (pop)
+
+
+    //buttonb pressed
+    // if preview (restore)
+
+
+
+
     public void ButtonPressed()
     {
         isPressed = true;
@@ -86,6 +97,8 @@ public class Lighsaber : MonoBehaviour
         isPressed = false;
         if (isPreview)
         {
+            //refactor into a method called pop vvvv
+            //remove all of that
             Destroy(og);
             cut1.GetComponent<MeshRenderer>().material = balckWireframe;
             cut2.GetComponent<MeshRenderer>().material = balckWireframe;
@@ -106,6 +119,7 @@ public class Lighsaber : MonoBehaviour
         }
         else
         {
+            //Refactore into a method called restore vvvv
             Destroy(cut1);
             Destroy(cut2);
             og.SetActive(true);
