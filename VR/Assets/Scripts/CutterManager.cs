@@ -32,48 +32,12 @@ public class CutterManager : MonoBehaviour
         ogs = new List<GameObject>();
         rightCuts = new List<GameObject>();
         leftCuts = new List<GameObject>();
-
-        mesh = new Mesh();
-        mesh.name = "Plane";
-
-        mesh.vertices = GenerateVerts();
-        mesh.triangles = GenerateTries();
-
-        mesh.RecalculateNormals();
-        mesh.RecalculateBounds();
-
-        meshFilter = gameObject.AddComponent<MeshFilter>();
-
-        meshFilter.mesh = mesh;
-    }
-
-    private Vector3[] GenerateVerts()
-    {
-        return new Vector3[]
-        {
-            corner1.transform.localPosition,
-            corner2.transform.localPosition,
-            corner3.transform.localPosition,
-        };
-    }
-    private int[] GenerateTries()
-    {
-        return new int[]
-        {
-            0,2,1,
-        };
     }
 
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        mesh.vertices = GenerateVerts();
-        //detect if cube is inside or outside 
-        //PreviewCuts();
 
-    }
+
 
     public void PopCube()
     {

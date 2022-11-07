@@ -18,10 +18,13 @@ public class InputManager : MonoBehaviour
     private List<InputDevice> devices = new List<InputDevice>();
     private InputDevice device;
 
-    private bool wasPressed = false;
+    private bool wasPressedTrigger = false;
 
-    public UnityEvent onPress;
-    public UnityEvent onRelease;
+    public UnityEvent onPressTrigger;
+    public UnityEvent onReleaseTrigger;
+
+    public UnityEvent onPressPrimary;
+    public UnityEvent onPressSecondary;
 
     void GetDevice()
     {
@@ -49,19 +52,31 @@ public class InputManager : MonoBehaviour
         bool triggerButtonAction = false;
         if (device.TryGetFeatureValue(CommonUsages.triggerButton, out triggerButtonAction) && triggerButtonAction)
         {
-            if (!wasPressed)
+            if (!wasPressedTrigger)
             {
-                onPress.Invoke();
-                wasPressed = true;
+                onPressTrigger.Invoke();
+                wasPressedTrigger = true;
             }
         }
         else
         {
-            if (wasPressed)
+            if (wasPressedTrigger)
             {
-                onRelease.Invoke();
-                wasPressed = false;
+                onReleaseTrigger.Invoke();
+                wasPressedTrigger = false;
             }
+        }
+
+        bool AButtonAction = false;
+        if (device.TryGetFeatureValue(CommonUsages.primaryButton, out AButtonAction) && AButtonAction)
+        {
+            onPressPrimary.Invoke();
+        }
+
+        bool BButtonAction = false;
+        if (device.TryGetFeatureValue(CommonUsages.secondaryButton, out BButtonAction) && BButtonAction)
+        {
+            onPressSecondary.Invoke();
         }
     }
 }

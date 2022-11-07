@@ -10,9 +10,6 @@ public class Lighsaber : MonoBehaviour
     //The number of vertices to create per frame
     private const int NUM_VERTICES = 12;
 
-    [SerializeField]
-    [Tooltip("The blade object")]
-    private GameObject _blade = null;
      
     [SerializeField]
     [Tooltip("The empty game object located at the tip of the blade")]
@@ -25,10 +22,6 @@ public class Lighsaber : MonoBehaviour
     [SerializeField]
     [Tooltip("The mesh object with the mesh filter and mesh renderer")]
     private GameObject _meshParent = null;
-
-    [SerializeField]
-    [Tooltip("The number of frame that the trail should be rendered for")]
-    private int _trailFrameLength = 3;
 
     [SerializeField]
     [ColorUsage(true, true)]
@@ -53,7 +46,7 @@ public class Lighsaber : MonoBehaviour
     private Vector3 _triggerExitTipPosition;
 
     //Input logic
-    private bool isPressed = false;
+    public bool isPressed = false;
     private bool isPreview = false;
 
     private GameObject og;
@@ -71,63 +64,57 @@ public class Lighsaber : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        
-    }
-
-
-    //buttona pressed
-    // If preview (pop)
-
-
-    //buttonb pressed
-    // if preview (restore)
-
-
-
-
-    public void ButtonPressed()
+    public void TriggerPressed()
     {
         isPressed = true;
     }
 
-    public void ButtonReleased()
+    public void TriggerReleased()
     {
         isPressed = false;
+    }
+    public void ApplyCut()
+    {
         if (isPreview)
         {
-            //refactor into a method called pop vvvv
-            //remove all of that
-            Destroy(og);
-            cut1.GetComponent<MeshRenderer>().material = balckWireframe;
-            cut2.GetComponent<MeshRenderer>().material = balckWireframe;
-            Rigidbody rigidbody = cut2.GetComponent<Rigidbody>();
-            Vector3 newNormal = cutNormal + Vector3.up * _forceAppliedToCut;
-            rigidbody.AddForce(newNormal, ForceMode.Impulse);
-            isPreview = false;
+            Pop();
         }
     }
+
+    public void RestoreCut()
+    {
+        if (isPreview)
+        {
+            Restore();
+        }
+    }
+
+    private void Pop()
+    {
+        Destroy(og);
+        cut1.GetComponent<MeshRenderer>().material = balckWireframe;
+        cut2.GetComponent<MeshRenderer>().material = balckWireframe;
+        Rigidbody rigidbody = cut2.GetComponent<Rigidbody>();
+        Vector3 newNormal = cutNormal + Vector3.up * _forceAppliedToCut;
+        rigidbody.AddForce(newNormal, ForceMode.Impulse);
+        isPreview = false;
+    }
+
+    private void Restore()
+    {
+        Destroy(cut1);
+        Destroy(cut2);
+        og.SetActive(true);
+        isPreview = false;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (!isPressed) return;
-        if (!isPreview)
-        {
-            _triggerEnterTipPosition = _tip.transform.position;
-            _triggerEnterBasePosition = _base.transform.position;
-        }
-        else
-        {
-            //Refactore into a method called restore vvvv
-            Destroy(cut1);
-            Destroy(cut2);
-            og.SetActive(true);
-            _triggerEnterTipPosition = _tip.transform.position;
-            _triggerEnterBasePosition = _base.transform.position;
-            isPreview = false;
-        }
-
+        if (isPreview) Restore();
+        _triggerEnterTipPosition = _tip.transform.position;
+        _triggerEnterBasePosition = _base.transform.position;
     }
 
     private void OnTriggerExit(Collider other)
