@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Lighsaber : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class Lighsaber : MonoBehaviour
     //The number of vertices to create per frame
     private const int NUM_VERTICES = 12;
 
-     
+    [SerializeField]
+    [Tooltip("The blade gameobject")]
+    private GameObject _blade = null;
+
     [SerializeField]
     [Tooltip("The empty game object located at the tip of the blade")]
     private GameObject _tip = null;
@@ -46,7 +50,7 @@ public class Lighsaber : MonoBehaviour
     private Vector3 _triggerExitTipPosition;
 
     //Input logic
-    public bool isPressed = false;
+    private bool isPressed = false;
     private bool isPreview = false;
 
     private GameObject og;
@@ -54,24 +58,32 @@ public class Lighsaber : MonoBehaviour
     private GameObject cut2;
     private Vector3 cutNormal;
 
+    private AudioSource sound;
+
+    private static int CUBE_LAYER = 6;
+
     void Start()
     {
         //Init mesh and triangles
         _meshParent.transform.position = Vector3.zero;
         _mesh = new Mesh();
         _meshParent.GetComponent<MeshFilter>().mesh = _mesh;
-
+        _blade.GetComponent<Renderer>().enabled = false;
+        sound = GetComponent<AudioSource>();
     }
 
 
     public void TriggerPressed()
     {
         isPressed = true;
+        sound.Play();
+        _blade.GetComponent<Renderer>().enabled = true;
     }
 
     public void TriggerReleased()
     {
         isPressed = false;
+        _blade.GetComponent<Renderer>().enabled = false;
     }
     public void ApplyCut()
     {
@@ -91,13 +103,40 @@ public class Lighsaber : MonoBehaviour
 
     private void Pop()
     {
-        Destroy(og);
+        
         cut1.GetComponent<MeshRenderer>().material = balckWireframe;
         cut2.GetComponent<MeshRenderer>().material = balckWireframe;
+
+        XRGrabInteractable grab1 = cut1.AddComponent<XRGrabInteractable>();
+        XRGrabInteractable grab2 = cut2.AddComponent<XRGrabInteractable>();
+
+        Sliceable originalSliceable = og.GetComponent<Sliceable>();
+        
+        Sliceable sliceable1 = cut1.AddComponent<Sliceable>();
+        sliceable1.IsSolid = originalSliceable.IsSolid;
+        sliceable1.ReverseWireTriangles = originalSliceable.ReverseWireTriangles;
+        sliceable1.UseGravity = originalSliceable.UseGravity;
+
+        Sliceable sliceable2 = cut2.AddComponent<Sliceable>();
+        sliceable2.IsSolid = originalSliceable.IsSolid;
+        sliceable2.ReverseWireTriangles = originalSliceable.ReverseWireTriangles;
+        sliceable2.UseGravity = originalSliceable.UseGravity;
+
+
         Rigidbody rigidbody = cut2.GetComponent<Rigidbody>();
         Vector3 newNormal = cutNormal + Vector3.up * _forceAppliedToCut;
         rigidbody.AddForce(newNormal, ForceMode.Impulse);
+
+        StartCoroutine(EnableKinematic(rigidbody));
+        Destroy(og);
         isPreview = false;
+    }
+
+    IEnumerator EnableKinematic(Rigidbody rb)
+    {
+        yield return new WaitForSeconds(0.7f);
+
+        rb.isKinematic = true;
     }
 
     private void Restore()
@@ -111,6 +150,8 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag != "Cube") return;
+        //if (other.GetComponent<Sliceable>() == null) return;
         if (!isPressed) return;
         if (isPreview) Restore();
         _triggerEnterTipPosition = _tip.transform.position;
@@ -119,6 +160,7 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.tag != "Cube") return;
         if (!isPressed) return;
         _triggerExitTipPosition = _tip.transform.position;
 
