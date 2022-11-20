@@ -32,7 +32,6 @@ public class CutterManager : MonoBehaviour
     public List<GameObject> leftCuts;
 
     private Vector3 cutNormal;
-    private static int CUBE_LAYER = 6;
     void Start()
     {
         ogs = new List<GameObject>();

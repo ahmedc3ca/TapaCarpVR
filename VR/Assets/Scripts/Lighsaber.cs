@@ -60,8 +60,6 @@ public class Lighsaber : MonoBehaviour
 
     private AudioSource sound;
 
-    private static int CUBE_LAYER = 6;
-
     void Start()
     {
         //Init mesh and triangles
