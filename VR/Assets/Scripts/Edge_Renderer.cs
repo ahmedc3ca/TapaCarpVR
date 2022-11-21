@@ -7,43 +7,13 @@ using System.Linq;
 public class Edge_Renderer : MonoBehaviour
 {
     public GameObject lineRenderer;
-    /*    void Start()
-        {
-            Mesh mesh = GetComponent<MeshFilter>().mesh;
-            Vector3[] vertices = mesh.vertices;
-            int[] triangles = mesh.triangles;
-    ;
-            foreach(var vr in vertices)
-            {
-                Debug.Log(vr);
-            }
-            foreach (var vr in triangles)
-            {
-                Debug.Log(vr);
-            }
-        }*/
-    /*
-        void Start()
-        {
-            Mesh mesh = GetComponent<MeshFilter>().mesh;
-            Vector3[] vertices = mesh.vertices;
-
-            List<Vector3> VertexList = new List<Vector3>();
-            foreach (Vector3 vertex in vertices)
-            {
-                VertexList.Add(vertex);
-
-            }
-            VertexList = VertexList.Distinct().ToList();
-            Debug.Log(VertexList);
-            foreach(var e in VertexList)
-            {
-                Debug.Log(e);
-            }
-
-        }*/
 
     private void Start()
+    {
+        UpdateEdges();
+    }
+
+    public void UpdateEdges()
     {
         Mesh mesh = GetComponent<MeshFilter>().mesh;
         Vector3[] vertices = mesh.vertices;
@@ -56,25 +26,27 @@ public class Edge_Renderer : MonoBehaviour
             lineInst.transform.localPosition = Vector3.zero;
             var lr = lineInst.GetComponent<LineRenderer>();
             lr.positionCount = 2;
-            lr.SetPosition(0, LocalPointToWorld(vertices[edge.v1]));
-            lr.SetPosition(1, LocalPointToWorld(vertices[edge.v2]));
+            lr.SetPosition(0, vertices[edge.v1]);
+            lr.SetPosition(1, vertices[edge.v2]);
         }
     }
 
-/*    void OnDrawGizmosSelected()
+    public void DisableEdges()
     {
-        Mesh mesh = GetComponent<MeshFilter>().mesh;
-        Vector3[] vertices = mesh.vertices;
-        var boundary = EdgeHelpers.GetEdges(mesh.triangles).FindBoundary();
-        Gizmos.color = Color.blue;
-        
-        foreach(var edge in boundary)
+        foreach(Transform child in transform)
         {
-            Gizmos.DrawLine(LocalPointToWorld(vertices[edge.v1]), LocalPointToWorld(vertices[edge.v2]));
+            child.gameObject.SetActive(false);
         }
-
     }
-*/
+
+    public void EnableEdges()
+    {
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(true);
+        }
+    }
+
     public Vector3 LocalPointToWorld(Vector3 p) => transform.TransformPoint(p);
 }
 

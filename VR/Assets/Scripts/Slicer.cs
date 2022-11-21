@@ -60,14 +60,14 @@ namespace Assets.Scripts
             Sliceable originalSliceable = originalObject.GetComponent<Sliceable>();
 
             meshGameObject.AddComponent<MeshFilter>();
-            meshGameObject.AddComponent<MeshRenderer>();
+            //meshGameObject.AddComponent<MeshRenderer>();
 /*            Sliceable sliceable = meshGameObject.AddComponent<Sliceable>();
 
             sliceable.IsSolid = originalSliceable.IsSolid;
             sliceable.ReverseWireTriangles = originalSliceable.ReverseWireTriangles;
             sliceable.UseGravity = originalSliceable.UseGravity;*/
 
-            meshGameObject.GetComponent<MeshRenderer>().materials = originalMaterial;
+            //meshGameObject.GetComponent<MeshRenderer>().materials = originalMaterial;
 
             meshGameObject.transform.localScale = originalObject.transform.localScale;
             meshGameObject.transform.rotation = originalObject.transform.rotation;
