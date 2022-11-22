@@ -23,20 +23,16 @@ public class CutterManager : MonoBehaviour
     [SerializeField]
     [Tooltip("The amount of force applied to each side of a slice")]
     private float _forceAppliedToCut = 3f;
-
-    public GameObject lineRenderer;
-    public GameObject red_lineRenderer;
-    public GameObject blue_lineRenderer;
-
     protected MeshFilter meshFilter;
     protected Mesh mesh;
 
 
-    List<GameObject> ogs;
-    List<GameObject> rightCuts;
-    List<GameObject> leftCuts;
+    public List<GameObject> ogs;
+    public List<GameObject> rightCuts;
+    public List<GameObject> leftCuts;
 
     private Vector3 cutNormal;
+    private static int CUBE_LAYER = 6;
     void Start()
     {
         ogs = new List<GameObject>();
@@ -57,7 +53,7 @@ public class CutterManager : MonoBehaviour
         Debug.Log("popping");
         for (int i = 0; i < ogs.Count; i++)
         {
-            
+
             var cut1 = rightCuts[i];
             var cut2 = leftCuts[i];
 
@@ -81,12 +77,12 @@ public class CutterManager : MonoBehaviour
             sliceable2.UseGravity = originalSliceable.UseGravity;
 
             Rigidbody rigidbody1 = cut1.GetComponent<Rigidbody>();
-            Vector3 newNormal1 = -(cutNormal + Vector3.up * _forceAppliedToCut);
-            rigidbody1.AddForce(newNormal1, ForceMode.Impulse);
+            Vector3 newNormal1 = (cutNormal * _forceAppliedToCut);
+            cut1.transform.Translate(newNormal1);
 
             Rigidbody rigidbody2 = cut2.GetComponent<Rigidbody>();
-            Vector3 newNormal2 = cutNormal + Vector3.up * _forceAppliedToCut;
-            rigidbody2.AddForce(newNormal2, ForceMode.Impulse);
+            Vector3 newNormal2 = -(cutNormal * _forceAppliedToCut);
+            cut2.transform.Translate(newNormal2);
 
 
             StartCoroutine(EnableKinematic(rigidbody1, rigidbody2));
@@ -109,7 +105,7 @@ public class CutterManager : MonoBehaviour
     }
     public void PreviewCuts()
     {
-        for(int i = 0; i < ogs.Count; i++)
+        for (int i = 0; i < ogs.Count; i++)
         {
             PreviewCut(ogs[i], i);
         }
@@ -167,31 +163,23 @@ public class CutterManager : MonoBehaviour
         {
             Destroy(rightCuts[index]);
         }
-        if(leftCuts[index] != null)
+        if (leftCuts[index] != null)
         {
             Destroy(leftCuts[index]);
         }
         GameObject[] slices = Slicer.Slice(plane, cutted);
         //Destroy(cutted);
         cutted.GetComponent<Renderer>().enabled = false;
-        cutted.GetComponent<Edge_Renderer>().DisableEdges();
         //cutted.GetComponent<XRGrabInteractable>().enabled = false;
 
         var cut1 = slices[0];
         var cut2 = slices[1];
-        
+
         rightCuts[index] = cut1;
         leftCuts[index] = cut2;
 
-        /*        cut1.GetComponent<MeshRenderer>().material = redWireframe;
-                cut2.GetComponent<MeshRenderer>().material = blueWireframe;*/
-        var rend1 = cut1.AddComponent<Edge_Renderer>();
-        rend1.lineRenderer = red_lineRenderer;
-        rend1.UpdateEdges();
-
-        var rend2 = cut1.AddComponent<Edge_Renderer>();
-        rend2.lineRenderer = blue_lineRenderer;
-        rend2.UpdateEdges();
+        cut1.GetComponent<MeshRenderer>().material = redWireframe;
+        cut2.GetComponent<MeshRenderer>().material = blueWireframe;
     }
 
 

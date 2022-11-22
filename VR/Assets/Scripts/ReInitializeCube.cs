@@ -7,10 +7,15 @@ public class ReInitializeCube : MonoBehaviour
     [SerializeField]
     private GameObject cubePrefab;
 
-    public GameObject currentCube;
+    public Transform cubeParent;
     public void ResetCube()
     {
-        GameObject.Destroy(currentCube);
-        GameObject.Instantiate(cubePrefab);
+        foreach(Transform child in cubeParent)
+        {
+            Destroy(child.gameObject);
+        }
+        
+        GameObject newcube = Instantiate(cubePrefab);
+        newcube.transform.parent = cubeParent;
     }
 }
