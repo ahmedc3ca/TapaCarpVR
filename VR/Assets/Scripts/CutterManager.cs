@@ -23,6 +23,8 @@ public class CutterManager : MonoBehaviour
     [SerializeField]
     [Tooltip("The amount of force applied to each side of a slice")]
     private float _forceAppliedToCut = 3f;
+    [SerializeField]
+    private TeleportManager tm;
     protected MeshFilter meshFilter;
     protected Mesh mesh;
 
@@ -88,7 +90,7 @@ public class CutterManager : MonoBehaviour
             Destroy(ogs[i]);
         }
         Debug.Log("dones");
-
+        tm.MapToWorld();
         ogs = new List<GameObject>();
         rightCuts = new List<GameObject>();
         leftCuts = new List<GameObject>();
@@ -101,6 +103,7 @@ public class CutterManager : MonoBehaviour
 
         rb1.isKinematic = true;
         rb2.isKinematic = true;
+        
     }
     public void PreviewCuts()
     {
@@ -179,6 +182,8 @@ public class CutterManager : MonoBehaviour
 
         cut1.GetComponent<MeshRenderer>().material = redWireframe;
         cut2.GetComponent<MeshRenderer>().material = blueWireframe;
+
+        
     }
 
 
