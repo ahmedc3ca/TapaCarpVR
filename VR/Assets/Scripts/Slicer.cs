@@ -95,8 +95,8 @@ namespace Assets.Scripts
             meshCollider.sharedMesh = mesh;
             meshCollider.convex = true;
 
-/*            var rb = gameObject.AddComponent<Rigidbody>();
-            rb.useGravity = false;
+            var rb = gameObject.AddComponent<Rigidbody>();
+            /*rb.useGravity = false;
             rb.isKinematic= true;*/
         }
     }

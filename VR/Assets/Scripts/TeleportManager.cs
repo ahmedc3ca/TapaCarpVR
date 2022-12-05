@@ -27,15 +27,24 @@ public class TeleportManager : MonoBehaviour
     [SerializeField]
     private Material defaultMaterial;
 
-    private float scalingFactor = 1;
+    [SerializeField]
+    private GameObject AnimationCamera;
+    [SerializeField]
+    private GameObject VRCamera;
+
     private static int CUBE_LAYER = 6;
     private GameObject cube;
     private List<GameObject> copies;
+
+    private int btn_count = 0;
     private void Start()
     {
         copies = new List<GameObject>();
-        psGround.enableEmission = false;
-        psVertical.enableEmission = false;
+
+        psGround.Stop();
+        psVertical.Stop();
+
+
 
         MapToWorld();
         //MapToScene();
@@ -68,6 +77,12 @@ public class TeleportManager : MonoBehaviour
         cc.worldPosition = world.transform;
         copies.Add(copy);
         copy.GetComponent<Rigidbody>().isKinematic = true;
+
+        //Can be mesh or box (in case of first shape)
+        MeshCollider mc = copy.GetComponent<MeshCollider>();
+        if(mc) mc.isTrigger = true;
+        BoxCollider bc = copy.GetComponent<BoxCollider>();
+        if (bc) bc.isTrigger = true;
         if (isTracked)
         {
             TriggerTracker tc = copy.AddComponent<TriggerTracker>();
@@ -77,6 +92,17 @@ public class TeleportManager : MonoBehaviour
         }
     }
 
+    public void ButtonPressed()
+    {
+        if(btn_count == 0)
+        {
+            StartTracking();
+        }
+        else
+        {
+            StartSimulation();
+        }
+    }
     public void StartTracking()
     {
         if (cube == null) return;
@@ -84,12 +110,34 @@ public class TeleportManager : MonoBehaviour
         cube.transform.position = (scenePosition.position + new Vector3(0, 0.1f, 0));
         RemoveCubes();
         MapObjectToWorld(cube, true);
+        btn_count = 1;
     }
 
     public void StartSimulation()
     {
+        Debug.Log("started");
+        if (cube == null) return;
+        Debug.Log("started2");
+        MeshCollider mc = copies[0].GetComponent<MeshCollider>();
+        if (mc) mc.isTrigger = false;
+        BoxCollider bc = copies[0].GetComponent<BoxCollider>();
+        if (bc) bc.isTrigger = false;
+        Rigidbody rb = copies[0].GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        Debug.Log("started3");
+        AnimationCamera.SetActive(true);
+        VRCamera.SetActive(false);
+        StartCoroutine(StartWalking());
+        Debug.Log("started4");
+    }
+
+    IEnumerator StartWalking()
+    {
+        yield return new WaitForSeconds(0.7f);
         surface.BuildNavMesh();
         walkerController.GoToDestination();
+
     }
     void RemoveCubes()
     {
@@ -101,24 +149,13 @@ public class TeleportManager : MonoBehaviour
 
         RemoveCopies();
     }
-    void ResetChildPosition()
-    {
-        foreach (Transform child in cube.transform)
-        {
-            child.position = world.transform.position + new Vector3(0, 0.1f, 0);
-        }
-    }
+
 
     void StartParticles()
     {
-        psGround.enableEmission = true;
-        psVertical.enableEmission = true;
+        psGround.Play();
+        psVertical.Play();
         //PLAY SOUND
-    }
-
-    void CopyCube()
-    {
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -126,6 +163,14 @@ public class TeleportManager : MonoBehaviour
         if(other.gameObject.layer == CUBE_LAYER)
         {
             cube = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject == cube)
+        {
+            //cube = null;
         }
     }
 }

@@ -6,8 +6,7 @@ using UnityEngine.Events;
 public class TeleportButton : MonoBehaviour
 {
     public GameObject button;
-    public UnityEvent onPress1;
-    public UnityEvent onPress2;
+    public UnityEvent onPress;
 
     GameObject presser;
     AudioSource sound;
@@ -28,15 +27,7 @@ public class TeleportButton : MonoBehaviour
         if (!isPressed)
         {
             button.transform.localPosition = new Vector3(0, 0.005f, 0);
-            presser = other.gameObject;
-            if ((counter % 2 == 0))
-            {
-                onPress1.Invoke();
-            }
-            else
-            {
-                onPress2.Invoke();
-            }
+            onPress.Invoke();
             counter++;
             sound.Play();
             isPressed = true;
@@ -56,15 +47,19 @@ public class TeleportButton : MonoBehaviour
 
     public void DisableButton()
     {
+        Debug.Log("Disabled");
         if (counter == 0) return;
         isDisabled = true;
+        isPressed = false;
         button.transform.localPosition = new Vector3(0, 0.005f, 0);
+        
     }
 
     public void EnableButton()
     {
+        Debug.Log("enabled");
         if (counter == 0) return;
-        isDisabled = true;
+        isDisabled = false;
         button.transform.localPosition = new Vector3(0, 0.014f, 0);
     }
 

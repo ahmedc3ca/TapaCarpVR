@@ -85,12 +85,14 @@ public class CutterManager : MonoBehaviour
             Vector3 newNormal2 = -(cutNormal * _forceAppliedToCut);
             cut2.transform.Translate(newNormal2);
 
-
             StartCoroutine(EnableKinematic(rigidbody1, rigidbody2));
             Destroy(ogs[i]);
         }
         Debug.Log("dones");
-        tm.MapToWorld();
+        if (tm != null)
+        {
+            tm.MapToWorld();
+        }
         ogs = new List<GameObject>();
         rightCuts = new List<GameObject>();
         leftCuts = new List<GameObject>();

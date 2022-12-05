@@ -8,6 +8,7 @@ public class CubeCopier : MonoBehaviour
     public GameObject parent;
     public Transform worldPosition;
     private Vector3 firstPoint;
+    private float mappingscale = 10f;
     private void Start()
     {
         firstPoint = parent.transform.position;
@@ -18,8 +19,8 @@ public class CubeCopier : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        transform.position = parent.transform.position + (worldPosition.transform.position - firstPoint);
+        transform.position = mappingscale * (parent.transform.position - firstPoint) + (worldPosition.transform.position) ;
         transform.localRotation = parent.transform.localRotation;
-        transform.localScale = parent.transform.localScale;
+        transform.localScale = new Vector3(3f, 3f, 3f);
     }
 }
