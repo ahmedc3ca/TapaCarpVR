@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.SceneManagement;
 public class TeleportManager : MonoBehaviour
 {
     public Transform cubeParent;
@@ -18,7 +18,9 @@ public class TeleportManager : MonoBehaviour
     [SerializeField]
     private NavMeshSurface surface;
     [SerializeField]
-    private WalkerController walkerController;
+    private WalkerController walkerController1;
+    [SerializeField]
+    private WalkerController walkerController2;
     [SerializeField]
     private TeleportButton tb;
 
@@ -37,6 +39,8 @@ public class TeleportManager : MonoBehaviour
     private List<GameObject> copies;
 
     private int btn_count = 0;
+
+    private int n_players_arrived = 0;
     private void Start()
     {
         copies = new List<GameObject>();
@@ -115,9 +119,7 @@ public class TeleportManager : MonoBehaviour
 
     public void StartSimulation()
     {
-        Debug.Log("started");
         if (cube == null) return;
-        Debug.Log("started2");
         MeshCollider mc = copies[0].GetComponent<MeshCollider>();
         if (mc) mc.isTrigger = false;
         BoxCollider bc = copies[0].GetComponent<BoxCollider>();
@@ -125,18 +127,39 @@ public class TeleportManager : MonoBehaviour
         Rigidbody rb = copies[0].GetComponent<Rigidbody>();
         rb.isKinematic = false;
         rb.useGravity = true;
-        Debug.Log("started3");
-        AnimationCamera.SetActive(true);
-        VRCamera.SetActive(false);
-        StartCoroutine(StartWalking());
-        Debug.Log("started4");
+        if(AnimationCamera != null && VRCamera != null)
+        {
+            AnimationCamera.SetActive(true);
+            VRCamera.SetActive(false);
+            StartCoroutine(StartWalking());
+            StartCoroutine(StartTimer());
+        }
     }
 
+
+    IEnumerator StartTimer()
+    {
+        yield return new WaitForSeconds(15f);
+        SceneManager.LoadScene("Level1");
+
+    }
+    public void PlayerArrived()
+    {
+        if(n_players_arrived >= 1)
+        {
+            SceneManager.LoadScene("Finished");
+        }
+        else
+        {
+            n_players_arrived += 1;
+        }
+    }
     IEnumerator StartWalking()
     {
         yield return new WaitForSeconds(0.7f);
         surface.BuildNavMesh();
-        walkerController.GoToDestination();
+        walkerController1.GoToDestination();
+        walkerController2.GoToDestination();
 
     }
     void RemoveCubes()

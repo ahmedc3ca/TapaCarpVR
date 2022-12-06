@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
-
+using UnityEngine.Events;
 public class WalkerController : MonoBehaviour
 {
     [SerializeField]
@@ -12,7 +12,8 @@ public class WalkerController : MonoBehaviour
     public NavMeshAgent agent;
 
     public ThirdPersonCharacter character;
-    
+
+    public UnityEvent arrived;
     // Update is called once per frame
     private bool going = false;
 
@@ -38,5 +39,13 @@ public class WalkerController : MonoBehaviour
             character.Move(Vector3.zero, false, false);
         }
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 31)
+        {
+            arrived.Invoke();
+        }
     }
 }

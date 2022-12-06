@@ -9,14 +9,12 @@ using UnityEngine.XR;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField]
-    private Text text; 
 
     [SerializeField]
-    private XRNode xrNode = XRNode.LeftHand;
 
     private List<InputDevice> devices = new List<InputDevice>();
-    private InputDevice device;
+    private InputDevice ldevice;
+    private InputDevice rdevice;
 
     private bool wasPressedTrigger = false;
 
@@ -28,14 +26,16 @@ public class InputManager : MonoBehaviour
 
     void GetDevice()
     {
-        InputDevices.GetDevicesAtXRNode(xrNode, devices);
-        device = devices[0];
+        InputDevices.GetDevicesAtXRNode(XRNode.LeftHand, devices);
+        ldevice = devices[0];
+        InputDevices.GetDevicesAtXRNode(XRNode.RightHand, devices);
+        rdevice = devices[0];
 
     }
 
     void OnEnable()
     {
-        if (!device.isValid)
+        if (!(ldevice.isValid && rdevice.isValid))
         {
             GetDevice();
         }
@@ -44,13 +44,14 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (!device.isValid)
+        if (!(ldevice.isValid && rdevice.isValid))
         {
             GetDevice();
         }
 
-        bool triggerButtonAction = false;
-        if (device.TryGetFeatureValue(CommonUsages.triggerButton, out triggerButtonAction) && triggerButtonAction)
+        bool ltriggerButtonAction = false;
+        bool rtriggerButtonAction = false;
+        if ((ldevice.TryGetFeatureValue(CommonUsages.triggerButton, out ltriggerButtonAction) && ltriggerButtonAction) || (rdevice.TryGetFeatureValue(CommonUsages.triggerButton, out rtriggerButtonAction) && rtriggerButtonAction))
         {
             if (!wasPressedTrigger)
             {
@@ -67,14 +68,16 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        bool AButtonAction = false;
-        if (device.TryGetFeatureValue(CommonUsages.primaryButton, out AButtonAction) && AButtonAction)
+        bool lAButtonAction = false;
+        bool rAButtonAction = false;
+        if ((ldevice.TryGetFeatureValue(CommonUsages.primaryButton, out lAButtonAction) && lAButtonAction)|| (rdevice.TryGetFeatureValue(CommonUsages.primaryButton, out rAButtonAction) && rAButtonAction))
         {
             onPressPrimary.Invoke();
         }
 
-        bool BButtonAction = false;
-        if (device.TryGetFeatureValue(CommonUsages.secondaryButton, out BButtonAction) && BButtonAction)
+        bool lBButtonAction = false;
+        bool rBButtonAction = false;
+        if ((ldevice.TryGetFeatureValue(CommonUsages.secondaryButton, out lBButtonAction) && lBButtonAction) || (rdevice.TryGetFeatureValue(CommonUsages.secondaryButton, out rBButtonAction) && rBButtonAction))
         {
             onPressSecondary.Invoke();
         }

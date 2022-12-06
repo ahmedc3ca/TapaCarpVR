@@ -15,6 +15,7 @@ public class TextPopup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("something entered");
         LeanTween.scale(gameObject, new Vector3(1, 1, 1), 0.3f).setDelay(0.5f);
         sound.Play();
     }

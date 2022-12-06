@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ReInitializeCube : MonoBehaviour
 {
@@ -13,13 +14,14 @@ public class ReInitializeCube : MonoBehaviour
     public Transform cubeParent;
     public void ResetCube()
     {
-        foreach(Transform child in cubeParent)
+        SceneManager.LoadScene("Level1");
+/*        foreach(Transform child in cubeParent)
         {
             Destroy(child.gameObject);
         }
         
         GameObject newcube = Instantiate(cubePrefab);
         newcube.transform.parent = cubeParent;
-        tm.MapToWorld();
+        tm.MapToWorld();*/
     }
 }
