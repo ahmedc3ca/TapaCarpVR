@@ -27,6 +27,7 @@ public class TeleportButton : MonoBehaviour
         if (!isPressed)
         {
             button.transform.localPosition = new Vector3(0, 0.005f, 0);
+            presser = other.gameObject;
             onPress.Invoke();
             counter++;
             sound.Play();
