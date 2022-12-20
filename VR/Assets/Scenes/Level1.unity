@@ -166,7 +166,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25314
+  m_Name: pb_Mesh72654
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -331,7 +331,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25562
+  m_Name: pb_Mesh72902
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 73182590}
   - component: {fileID: 73182592}
   - component: {fileID: 73182591}
+  - component: {fileID: 73182593}
   m_Layer: 0
   m_Name: Drywall Panel (8)
   m_TagString: Untagged
@@ -574,13 +575,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73182589}
   m_Mesh: {fileID: 4300004, guid: 47616bd0cda748d4cbedcfc908506b9d, type: 3}
+--- !u!65 &73182593
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73182589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6600025, y: 2.44, z: 0.020000052}
+  m_Center: {x: -0.0000014305115, y: 1.22, z: 0.009996688}
 --- !u!43 &86724197
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25720
+  m_Name: pb_Mesh25764
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -2189,7 +2203,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25444
+  m_Name: pb_Mesh72784
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -2698,7 +2712,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24966
+  m_Name: pb_Mesh72300
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3455,7 +3469,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25550
+  m_Name: pb_Mesh72890
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3620,7 +3634,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25846
+  m_Name: pb_Mesh73192
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3785,7 +3799,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24940
+  m_Name: pb_Mesh72274
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4424,7 +4438,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25832
+  m_Name: pb_Mesh73178
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4594,6 +4608,7 @@ GameObject:
   - component: {fileID: 418480467}
   - component: {fileID: 418480469}
   - component: {fileID: 418480468}
+  - component: {fileID: 418480470}
   m_Layer: 0
   m_Name: Drywall Panel (11)
   m_TagString: Untagged
@@ -4667,6 +4682,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418480466}
   m_Mesh: {fileID: 4300004, guid: 47616bd0cda748d4cbedcfc908506b9d, type: 3}
+--- !u!65 &418480470
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418480466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6600015, y: 2.44, z: 0.020000046}
+  m_Center: {x: 0.00000166893, y: 1.22, z: 0.009998116}
 --- !u!1 &420152498
 GameObject:
   m_ObjectHideFlags: 0
@@ -5303,6 +5331,7 @@ GameObject:
   - component: {fileID: 479276882}
   - component: {fileID: 479276884}
   - component: {fileID: 479276883}
+  - component: {fileID: 479276885}
   m_Layer: 0
   m_Name: Drywall Panel (13)
   m_TagString: Untagged
@@ -5376,6 +5405,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479276881}
   m_Mesh: {fileID: 4300004, guid: 47616bd0cda748d4cbedcfc908506b9d, type: 3}
+--- !u!65 &479276885
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479276881}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6600025, y: 2.44, z: 0.020000052}
+  m_Center: {x: 0.0000014305115, y: 1.22, z: 0.009999549}
 --- !u!1 &495703681
 GameObject:
   m_ObjectHideFlags: 0
@@ -5726,7 +5768,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25076
+  m_Name: pb_Mesh72412
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -5924,7 +5966,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25472
+  m_Name: pb_Mesh72812
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6277,7 +6319,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25038
+  m_Name: pb_Mesh72372
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6442,7 +6484,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25118
+  m_Name: pb_Mesh25156
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -7455,7 +7497,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25274
+  m_Name: pb_Mesh72614
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -7625,6 +7667,7 @@ GameObject:
   - component: {fileID: 673868491}
   - component: {fileID: 673868493}
   - component: {fileID: 673868492}
+  - component: {fileID: 673868494}
   m_Layer: 0
   m_Name: Drywall Panel (2)
   m_TagString: Untagged
@@ -7698,6 +7741,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673868490}
   m_Mesh: {fileID: 4300004, guid: 47616bd0cda748d4cbedcfc908506b9d, type: 3}
+--- !u!65 &673868494
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673868490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6600015, y: 2.44, z: 0.020000046}
+  m_Center: {x: -0.0000038146973, y: 1.22, z: 0.009999189}
 --- !u!1 &683282162
 GameObject:
   m_ObjectHideFlags: 0
@@ -8630,7 +8686,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25538
+  m_Name: pb_Mesh72878
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -9468,7 +9524,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25976
+  m_Name: pb_Mesh73324
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -9633,7 +9689,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25818
+  m_Name: pb_Mesh73164
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -14699,7 +14755,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25864
+  m_Name: pb_Mesh73210
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -15208,7 +15264,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25246
+  m_Name: pb_Mesh72586
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -15521,7 +15577,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26032
+  m_Name: pb_Mesh73380
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -15686,7 +15742,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25396
+  m_Name: pb_Mesh72736
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -16832,7 +16888,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24902
+  m_Name: pb_Mesh72236
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -17165,7 +17221,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25604
+  m_Name: pb_Mesh72944
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -18831,7 +18887,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24914
+  m_Name: pb_Mesh72248
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -18996,7 +19052,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25584
+  m_Name: pb_Mesh72924
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -19179,14 +19235,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245888515}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.060425363, w: 0.9981727}
   m_LocalPosition: {x: -0.007450044, y: -0.22262001, z: -0.303751}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2019030928}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.928}
 --- !u!114 &1245888517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19213,9 +19269,9 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.016666668
+  m_VoxelSize: 0.26333335
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 6c1463556cdb5c645877f894d2e9c738, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 8852466903d5d8645bcde5166cba2337, type: 2}
 --- !u!1 &1253281081
 GameObject:
   m_ObjectHideFlags: 0
@@ -21389,6 +21445,7 @@ GameObject:
   - component: {fileID: 1366454368}
   - component: {fileID: 1366454370}
   - component: {fileID: 1366454369}
+  - component: {fileID: 1366454371}
   m_Layer: 0
   m_Name: Drywall Panel (12)
   m_TagString: Untagged
@@ -21462,6 +21519,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366454367}
   m_Mesh: {fileID: 4300004, guid: 47616bd0cda748d4cbedcfc908506b9d, type: 3}
+--- !u!65 &1366454371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366454367}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6600015, y: 2.44, z: 0.020000046}
+  m_Center: {x: 0.0000038146973, y: 1.22, z: 0.009998116}
 --- !u!1 &1369601662
 GameObject:
   m_ObjectHideFlags: 0
@@ -21705,7 +21775,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25182
+  m_Name: pb_Mesh72520
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -21870,7 +21940,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25652
+  m_Name: pb_Mesh72994
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -22663,6 +22733,7 @@ GameObject:
   - component: {fileID: 1570136774}
   - component: {fileID: 1570136776}
   - component: {fileID: 1570136775}
+  - component: {fileID: 1570136777}
   m_Layer: 0
   m_Name: Drywall Panel (10)
   m_TagString: Untagged
@@ -22736,6 +22807,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570136773}
   m_Mesh: {fileID: 4300004, guid: 47616bd0cda748d4cbedcfc908506b9d, type: 3}
+--- !u!65 &1570136777
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570136773}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6600015, y: 2.44, z: 0.020000046}
+  m_Center: {x: -0.00000023841858, y: 1.22, z: 0.009997639}
 --- !u!1001 &1586623094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22923,7 +23007,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25262
+  m_Name: pb_Mesh72602
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -28279,7 +28363,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25524
+  m_Name: pb_Mesh72864
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -28558,7 +28642,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25458
+  m_Name: pb_Mesh72798
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -28728,6 +28812,7 @@ GameObject:
   - component: {fileID: 1690183367}
   - component: {fileID: 1690183369}
   - component: {fileID: 1690183368}
+  - component: {fileID: 1690183370}
   m_Layer: 0
   m_Name: Drywall Panel (6)
   m_TagString: Untagged
@@ -28801,6 +28886,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690183366}
   m_Mesh: {fileID: 4300004, guid: 47616bd0cda748d4cbedcfc908506b9d, type: 3}
+--- !u!65 &1690183370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690183366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6600025, y: 2.44, z: 0.020000052}
+  m_Center: {x: 0.000000059604645, y: 1.22, z: 0.0099952575}
 --- !u!1 &1707976571
 GameObject:
   m_ObjectHideFlags: 0
@@ -28866,22 +28964,22 @@ PrefabInstance:
     - target: {fileID: 8831747709007789213, guid: 3d4311c37d327094c94c6abd05650115,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.646835
+      value: -24.136
       objectReference: {fileID: 0}
     - target: {fileID: 8831747709007789213, guid: 3d4311c37d327094c94c6abd05650115,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.283865
+      value: -19.605
       objectReference: {fileID: 0}
     - target: {fileID: 8831747709007789213, guid: 3d4311c37d327094c94c6abd05650115,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.138042
+      value: 9.907
       objectReference: {fileID: 0}
     - target: {fileID: 8831747709007789213, guid: 3d4311c37d327094c94c6abd05650115,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9104891
+      value: 0.7173892
       objectReference: {fileID: 0}
     - target: {fileID: 8831747709007789213, guid: 3d4311c37d327094c94c6abd05650115,
         type: 3}
@@ -28891,7 +28989,7 @@ PrefabInstance:
     - target: {fileID: 8831747709007789213, guid: 3d4311c37d327094c94c6abd05650115,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.4135332
+      value: -0.6966727
       objectReference: {fileID: 0}
     - target: {fileID: 8831747709007789213, guid: 3d4311c37d327094c94c6abd05650115,
         type: 3}
@@ -28906,7 +29004,7 @@ PrefabInstance:
     - target: {fileID: 8831747709007789213, guid: 3d4311c37d327094c94c6abd05650115,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -48.854
+      value: -88.321
       objectReference: {fileID: 0}
     - target: {fileID: 8831747709007789213, guid: 3d4311c37d327094c94c6abd05650115,
         type: 3}
@@ -28921,7 +29019,7 @@ PrefabInstance:
     - target: {fileID: 8831747709007789214, guid: 3d4311c37d327094c94c6abd05650115,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -31097,7 +31195,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24926
+  m_Name: pb_Mesh72260
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -31799,7 +31897,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25168
+  m_Name: pb_Mesh72506
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -32169,6 +32267,7 @@ GameObject:
   - component: {fileID: 1985042470}
   - component: {fileID: 1985042472}
   - component: {fileID: 1985042471}
+  - component: {fileID: 1985042473}
   m_Layer: 0
   m_Name: Drywall Panel (1)
   m_TagString: Untagged
@@ -32242,6 +32341,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985042469}
   m_Mesh: {fileID: 4300004, guid: 47616bd0cda748d4cbedcfc908506b9d, type: 3}
+--- !u!65 &1985042473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985042469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6600015, y: 2.44, z: 0.020000046}
+  m_Center: {x: -0.000002026558, y: 1.22, z: 0.009999069}
 --- !u!1 &2002824923
 GameObject:
   m_ObjectHideFlags: 0
@@ -32327,7 +32439,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25232
+  m_Name: pb_Mesh72572
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -32991,7 +33103,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25500
+  m_Name: pb_Mesh72840
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -33341,7 +33453,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25804
+  m_Name: pb_Mesh73150
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -34475,6 +34587,7 @@ GameObject:
   - component: {fileID: 513742487693743112}
   - component: {fileID: 529502264233795788}
   - component: {fileID: 538809385026487790}
+  - component: {fileID: 538809385026487791}
   m_Layer: 0
   m_Name: Drywall Panel
   m_TagString: Untagged
@@ -35139,6 +35252,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &538809385026487791
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516514537368274962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6600015, y: 2.44, z: 0.020000046}
+  m_Center: {x: 0.00000023841858, y: 1.22, z: 0.009999189}
 --- !u!23 &538822719020565873
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36232,22 +36358,27 @@ PrefabInstance:
     - target: {fileID: 2648203139668527840, guid: aec89375e2afe1e478226a068c4b1a4b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.19634283
+      value: 0.19113581
       objectReference: {fileID: 0}
     - target: {fileID: 2648203139668527840, guid: aec89375e2afe1e478226a068c4b1a4b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.19634283
+      value: 0.19113581
       objectReference: {fileID: 0}
     - target: {fileID: 2648203139668527840, guid: aec89375e2afe1e478226a068c4b1a4b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.19634283
+      value: 0.19113581
       objectReference: {fileID: 0}
     - target: {fileID: 2648203139668527840, guid: aec89375e2afe1e478226a068c4b1a4b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.032
+      value: 0.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648203139668527840, guid: aec89375e2afe1e478226a068c4b1a4b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.997
       objectReference: {fileID: 0}
     - target: {fileID: 2648203139668527840, guid: aec89375e2afe1e478226a068c4b1a4b,
         type: 3}

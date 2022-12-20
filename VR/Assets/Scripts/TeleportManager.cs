@@ -89,7 +89,6 @@ public class TeleportManager : MonoBehaviour
         if (bc) bc.isTrigger = true;
         if (isTracked)
         {
-            cc.controlsPosition = false;
             TriggerTracker tc = copy.AddComponent<TriggerTracker>();
             tc.tb = tb;
             tc.collidingMaterial = collidingMaterial;
